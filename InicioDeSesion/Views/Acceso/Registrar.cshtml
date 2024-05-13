@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register-css.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link href="~/Content/css/Registrar.css" rel="stylesheet" />
+    <title>Registro</title>
+</head>
+<body>
+    <form action="@Url.Action("Registrar","Acceso")" class="formulario" method="post">
+        <h1 id="titulo">Regístrate</h1>
+        <label for="correoelectronico" class="texto">Correo Electrónico</label>
+        <input type="email" id="correoelectronico" name="Correo" required placeholder="email@dominio.com">
+
+        <label for="contrasena" class="texto">Contraseña</label>
+        <input type="password" id="contrasena" name="Clave" required>
+
+        <label for="veri_contraseña" class="texto">Confirmar contraseña</label>
+        <input type="password" id="veri_contraseña" name="ConfirmarClave" required>
+
+        @if (ViewData["Mensaje"] != null)
+        {
+            <div class="info" role="alert">
+                @ViewData["Mensaje"]
+            </div>
+        }
+
+
+        <button type="submit" class="boton">Registrarse</button>
+
+        <h5 class="otros">¿Ya tienes una cuenta? <a href="@Url.Action("Login", "Acceso")" style="color: #e3702e;">Inicia sesión aquí</a></h5>
+    </form>
+
+  
+</body>
+</html>
